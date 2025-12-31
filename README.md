@@ -1,21 +1,250 @@
 https://wessengetachew.github.io/2025/
 
-All of 2025 work by Wessen
-
 # Möbius Shell Sieve
 
-**A Comprehensive Interactive Platform for Exploring Number Theory & the Riemann Hypothesis**
+**An Interactive Number Theory Visualization Platform**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Plotly](https://img.shields.io/badge/Plotly-3F4F75?logo=plotly&logoColor=white)](https://plotly.com/javascript/)
+A comprehensive single-file HTML application featuring 68+ interactive tools for exploring prime numbers, the Riemann Hypothesis, modular arithmetic, and foundational number theory concepts.
+
+## Live Demo
+
+**[Launch Möbius Shell Sieve](https://wessengetachew.github.io/mobius-shell-sieve/)**
+
+## Features
+
+### Unified Explorers
+
+**ℤ² Lattice Explorer** — 3 integrated tools:
+- Primitive Lattice Points (6/π² density, Basel problem connection)
+- Gaussian Integers ℤ[i] (complex primes, norms, UFD structure)
+- Circle Problem (N(R) = πR² + E(R), Hardy conjecture)
+
+**ζ Riemann Hypothesis Hub** — 9 unified tools:
+- RH Error Bound (von Koch's conditional estimate)
+- Hardy Z(t) Function (real-valued, sign changes = zeros)
+- Gram Points (zero organization, Gram's Law)
+- Explicit Formula (Riemann's prime counting formula)
+- Zero Count N(T) (Riemann-von Mangoldt formula)
+- Argand Plot (ζ(½+it) in complex plane)
+- Zeta Real Axis (poles, trivial zeros, functional equation)
+- Montgomery Pair Correlation (random matrix connection)
+- GUE Statistics (Gaussian Unitary Ensemble)
+
+### Original Research Tools
+
+**Wessen Identity** — Novel finite-cutoff framework:
+```
+R_H(p_max) = A_H × C_H(p_max) × [M_no2(p_max)]^k
+```
+Connects modular sieve densities to Hardy-Littlewood constants with machine-precision verification.
+
+**Chord CV Analysis** — Geometric approach to prime gap patterns through chord length coefficient of variation.
+
+### Interactive Visualizations (60+ Tools)
+
+**Lattice & Geometry**
+- 2D/3D Primitive Points
+- Farey Sequences & Ford Circles
+- Cayley Transforms
+- Smith Chart Projections
+- Pythagorean Triples
+- Sum of Two Squares
+
+**Prime Distribution**
+- Twin Primes & Prime Gaps
+- Sophie Germain Primes
+- Goldbach Conjecture
+- Prime Races (Chebyshev bias)
+- Ulam & Sacks Spirals
+- Prime Constellations (k-tuples)
+
+**Modular Arithmetic**
+- Primitive Roots
+- Quadratic Residues
+- Dirichlet Characters
+- Cyclotomic Polynomials
+- Chinese Remainder Theorem
+
+**Arithmetic Functions**
+- Möbius Function μ(n)
+- Euler's Totient φ(n)
+- Divisor Functions σ(n), τ(n)
+- Liouville Function λ(n)
+- Von Mangoldt Function Λ(n)
+- Mertens Function M(n)
+
+**Special Numbers**
+- Carmichael Numbers
+- Mersenne Primes
+- Perfect Numbers
+- Highly Composite Numbers
+- Taxicab Numbers
+
+**Sequences**
+- Fibonacci & Lucas
+- Bernoulli Numbers
+- Catalan Numbers
+- Partition Function p(n)
+- Continued Fractions
+- Stern-Brocot Tree
+- Collatz Conjecture
+- Aliquot Sequences
+
+**Advanced Topics**
+- L-Functions & Zeros
+- Elliptic Curves
+- Quantum Number States
+
+## Technical Details
+
+### Single-File Architecture
+
+The entire application is contained in one HTML file (~1.4MB, ~26,000 lines) with:
+- Inline CSS with CSS variables for theming
+- Vanilla JavaScript (no build tools required)
+- Plotly.js for interactive charts
+- html2canvas for screenshot exports
+
+### Key Functions
+
+```javascript
+// Core enumeration
+enum2D(R, shape)        // Enumerate lattice points
+gcd(a, b)               // Greatest common divisor
+mobius(n)               // Möbius function
+euler(n)                // Euler's totient
+
+// Zeta computations
+zeta(s)                 // Riemann zeta (real s > 1)
+zetaComplex(s, t)       // ζ(s + it) approximation
+hardyZ(t)               // Hardy Z-function
+thetaRiemann(t)         // Riemann-Siegel theta
+
+// Sieve functions
+modularSieve(M, gap)    // Compute sieve statistics
+wessenIdentity(M, gap)  // Full identity computation
+```
+
+### Export Capabilities
+
+Every tool supports:
+- **Screenshot** — Composite image with charts + statistics
+- **4K Export** — High-resolution dashboard captures
+- **CSV Export** — Raw data for external analysis
+- **PNG Export** — Individual chart/canvas images
+
+## Usage
+
+### Local Development
+
+```bash
+# Clone the repository
+git clone https://github.com/wessengetachew/mobius-shell-sieve.git
+
+# Open directly in browser
+open mobius-shell-sieve.html
+# or
+python -m http.server 8000
+```
+
+### Keyboard Shortcuts
+
+- **Enter** in any input field triggers computation
+- **Click** on data points, table rows, or canvas elements for detailed analysis modals
+
+### URL Parameters
+
+Direct linking to specific tabs:
+```
+mobius-shell-sieve.html#t2d      # 2D Lattice
+mobius-shell-sieve.html#trh      # RH Hub
+mobius-shell-sieve.html#twessen  # Wessen Identity
+```
+
+## Mathematical Background
+
+### The Basel Problem Connection
+
+The density of primitive lattice points (coprime pairs) approaches:
+
+```
+lim(R→∞) P(R) / πR² = 6/π² = 1/ζ(2) ≈ 0.6079
+```
+
+This connects lattice geometry to the Riemann zeta function.
+
+### Möbius Inversion
+
+The shell decomposition uses Möbius inversion:
+
+```
+P(R) = Σ_{k=1}^{∞} μ(k) · L(R/k)
+```
+
+Where L(r) counts all lattice points in radius r, and μ(k) is the Möbius function.
+
+### Hardy-Littlewood Constants
+
+For prime k-tuples with pattern H = {h₁, ..., h_k}, the conjectured density involves:
+
+```
+C_H = ∏_p (1 - ν_H(p)/p) / (1 - 1/p)^k
+```
+
+Where ν_H(p) counts distinct residues of H mod p.
+
+## Themes
+
+Four built-in color schemes:
+- **Midnight** (default) — Dark blue background
+- **Terminal** — Green on black
+- **Light** — Clean white background
+- **Sepia** — Warm paper tones
+
+## Browser Compatibility
+
+Tested on:
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+Requires JavaScript enabled. WebGL recommended for 3D visualizations.
+
+## Performance Notes
+
+- Most tools handle R ≤ 200 smoothly
+- Large computations (R > 500) may cause brief freezes
+- 3D visualizations benefit from hardware acceleration
+
+## Contributing
+
+Contributions welcome! Areas of interest:
+- Additional number-theoretic visualizations
+- Performance optimizations
+- Accessibility improvements
+- Documentation and tutorials
+
+## License
+
+MIT License — Free for educational and research use.
+
+## Author
+
+**Wessen Getachew**
+- GitHub: [@wessengetachew](https://github.com/wessengetachew)
+- Twitter: [@7dview](https://twitter.com/7dview)
+
+## Acknowledgments
+
+- Plotly.js for charting
+- html2canvas for screenshot generation
+- The number theory community for inspiration
+- OEIS for reference sequences
 
 ---
 
-## Overview
-
-The **Möbius Shell Sieve** is a single-file, browser-based research platform integrating **65 interactive visualization tools** for exploring number theory—from lattice point counting and the Basel problem to the Riemann Hypothesis and random matrix theory.
+*"Mathematics is the queen of sciences and number theory is the queen of mathematics."* — Carl Friedrich Gauss
 
 Every tab features:
 - 🎛️ **Interactive Controls** — Sliders, dropdowns, and input fields with real-time updates

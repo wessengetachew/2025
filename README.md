@@ -1,4 +1,4 @@
-https://wessengetachew.github.io/2025/
+
 
 # Möbius Shell Sieve
 
@@ -8,7 +8,7 @@ A comprehensive single-file HTML application featuring 68+ interactive tools for
 
 ## Live Demo
 
-**[Launch Möbius Shell Sieve](https://wessengetachew.github.io/mobius-shell-sieve/)**
+**[Launch Möbius Shell Sieve](https://wessengetachew.github.io/2025/)**
 
 ## Features
 
